@@ -1,0 +1,90 @@
+% --- MEDIANS ---
+\begin{table}[H]
+\centering
+\caption{Performances \textbf{médianes} sur l'ensemble des scénarios (configuration 3)\label{tab:overall_conf3}}
+\footnotesize
+\begin{tabular}{lrrrrrr}
+\toprule
+Modèle & \small Rdt Ann. (\%) & \small Vol. Ann. (\%) & \small Sharpe & \small Sortino & \small Max DD (\%) & \small Turnover \\
+\midrule
+Algorithme Génétique & 9.71 & 17.72 & 0.533 & 0.569 & $-$29.82 & 0.142 \\
+Minimisation Variance & 4.70 & 12.56 & 0.338 & 0.407 & $-$22.85 & 0.297 \\
+Maximum Sharpe & 8.05 & 14.74 & 0.503 & 0.548 & $-$27.17 & 0.313 \\
+CAC 40 & 4.20 & 15.89 & 0.214 & 0.223 & $-$38.56 & 0.000 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% --- QUANTILES ---
+\begin{table}[H]
+\centering
+\caption{Analyse de la dispersion (Quantiles) du Sharpe et Sortino (configuration 3)\label{tab:quantiles_conf3}}
+\footnotesize
+\begin{tabular}{l|rrrrr|rrrrr}
+\toprule
+& \multicolumn{5}{c|}{\textbf{Ratio de Sharpe}} & \multicolumn{5}{c}{\textbf{Ratio de Sortino}} \\
+Modèle & 5\% & 25\% & 50\% & 75\% & 95\% & 5\% & 25\% & 50\% & 75\% & 95\% \\
+\midrule
+Algorithme Génétique & $-$0.492 & 0.177 & 0.533 & 0.795 & 1.403 & $-$0.720 & 0.208 & 0.569 & 0.968 & 1.697 \\
+Maximum Sharpe & $-$0.412 & 0.174 & 0.503 & 0.811 & 1.570 & $-$0.613 & 0.200 & 0.548 & 0.954 & 1.935 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% --- BY REGIME ---
+\begin{table}[H]
+\centering
+\caption{Performances \textbf{médianes} par régime de marché (configuration 3)\label{tab:regime_conf3}}
+\footnotesize
+\begin{tabular}{l|rrr|rrr}
+\toprule
+& \multicolumn{3}{c|}{\textbf{Algorithme Génétique}} & \multicolumn{3}{c}{\textbf{Maximum Sharpe}} \\
+Régime de Marché & Sharpe & Sortino & Max DD & Sharpe & Sortino & Max DD \\
+\midrule
+Autre / Moyen Terme & 0.621 & 0.729 & $-$32.99 & 0.656 & 0.887 & $-$42.36 \\
+Cycle Complet / Long Terme & 0.516 & 0.555 & $-$36.15 & 0.478 & 0.536 & $-$32.50 \\
+Marché Baissier (Bear) & 0.162 & 0.211 & $-$15.49 & 0.230 & 0.299 & $-$13.44 \\
+Marché Haussier (Bull) & 0.899 & 0.969 & $-$24.03 & 0.833 & 1.031 & $-$21.31 \\
+Période de Crise & 0.634 & 0.773 & $-$19.46 & 0.562 & 0.657 & $-$13.64 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% --- BY ASSET CLASS ---
+\begin{table}[H]
+\centering
+\caption{Ratio de Sharpe et Sortino \textbf{médians} par classe d'actifs (configuration 3)\label{tab:asset_conf3}}
+\footnotesize
+\begin{tabular}{l|rr|rr|rr}
+\toprule
+& \multicolumn{2}{c|}{\textbf{A.G.}} & \multicolumn{2}{c|}{\textbf{Max. Sharpe}} & \multicolumn{2}{c}{\textbf{Min. Var.}} \\
+Classe d'Actifs & Sharpe & Sortino & Sharpe & Sortino & Sharpe & Sortino \\
+\midrule
+Actions EU & 0.538 & 0.616 & 0.455 & 0.548 & 0.425 & 0.494 \\
+Actions FR & 0.479 & 0.540 & 0.503 & 0.550 & 0.529 & 0.600 \\
+Actions US & 0.605 & 0.716 & 0.561 & 0.582 & 0.492 & 0.509 \\
+Cryptomonnaies & 1.112 & 1.526 & 1.002 & 1.367 & 1.150 & 1.594 \\
+Marchés Émergents & 0.170 & 0.191 & 0.177 & 0.201 & 0.146 & 0.161 \\
+Matières Premières & 0.147 & 0.166 & 0.222 & 0.258 & 0.186 & 0.220 \\
+Mix \& Diversifié & 0.539 & 0.586 & 0.478 & 0.536 & 0.254 & 0.283 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% --- WIN RATES ---
+\begin{table}[H]
+\centering
+\caption{Taux de victoire et surperformance médiane de l'A.G. (configuration 3)\label{tab:win_conf3}}
+\footnotesize
+\begin{tabular}{lcc|cc|cc}
+\toprule
+ & \multicolumn{2}{c|}{\textbf{Ratio de Sharpe}} & \multicolumn{2}{c|}{\textbf{Ratio de Sortino}} & \multicolumn{2}{c}{\textbf{Max DD}} \\
+Face à & Win Rate & Écart & Win Rate & Écart & Win Rate* & Écart \\
+\midrule
+Minimisation Variance & 62.9\% & +0.079 & 63.5\% & +0.096 & 84.9\% & $-$5.030 \\
+Maximum Sharpe & 51.6\% & +0.005 & 52.2\% & +0.004 & 62.3\% & $-$1.260 \\
+\bottomrule
+\multicolumn{7}{l}{\scriptsize *Pour le Max DD, le Win Rate représente la proportion de fois où l'AG a une perte maximale inférieure.} \\
+\end{tabular}
+\end{table}
+

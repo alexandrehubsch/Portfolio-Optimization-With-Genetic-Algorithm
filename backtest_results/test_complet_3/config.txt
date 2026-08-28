@@ -1,0 +1,36 @@
+# --- Paramètres de l'Algorithme Génétique ---
+POPULATION_SIZE = 800          # (Ancien: 1000) 200 est amplement suffisant pour 5 à 35 actifs
+GENERATIONS = 1000              # (Ancien: 3000) Le GA converge bien avant 3000, 500 est optimal
+MUTATION_RATE = 0.10           # (Ancien: 0.15) Baissé pour stabiliser la convergence
+ELITISM_COUNT = int(0.05 * POPULATION_SIZE) # 5% d'élitisme (10 individus conservés)
+
+# --- Paramètres temporels ---
+LOOKBACK_WINDOW = 252          # 1 an de jours de trading
+SHORT_WINDOW = 50              # Tendance court terme
+REBALANCE_FREQ = 21            # Rééquilibrage mensuel
+
+# --- Coefficients de la fonction de Fitness ---
+# Ajustés d'après tes résultats pour réduire les pertes et le turnover
+RISK_AVERSION = 0.5            # (Ancien: 2) Augmenté pour forcer le GA à réduire son Max Drawdown
+SKEWNESS_PREFERENCE = 0.05     # Bonus asymétrie positive (Inchangé)
+KURTOSIS_AVERSION = 0.01       # (Ancien: 0.005) Doublé pour pénaliser les actifs aux chutes imprévisibles
+
+# --- Contraintes de portefeuille ---
+MAX_WEIGHT = 0.25              # Contrainte de diversification max (25% max par actif)
+TRANSACTION_FEE = 0.002        # Frais de transaction (0.2%)
+
+# LE CHANGEMENT CLÉ POUR LE TURNOVER : 
+# On multiplie la pénalité par 3 pour forcer le GA à arrêter de trop trader
+TURNOVER_AVERSION = (TRANSACTION_FEE * (252 / REBALANCE_FREQ))
+
+ALLOW_SHORT_SELLING = False    
+MAX_SHORT_WEIGHT = -0.15      
+
+# --- Estimateurs ---
+USE_EMA_ESTIMATOR = True    
+EMA_FAST_WINDOW = 40          
+EMA_SLOW_WINDOW = 200       
+
+ASSETS = ["AI.PA", "AIR.PA", "CS.PA", "BNP.PA", "BN.PA", "EL.PA", "KER.PA", "OR.PA", "MC.PA", "ML.PA", "RI.PA", "SAF.PA", "SAN.PA", "SU.PA", "TTE.PA"]
+START_DATE = '2007-01-01'
+END_DATE = '2024-01-01'
